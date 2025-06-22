@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Paddle
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Paddle
+    uniqueID: 2030852513
     locked: 0

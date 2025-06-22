@@ -5,17 +5,21 @@ public class PaddleMove : MonoBehaviour
     [SerializeField] GameObject BallPrehab;
     [SerializeField] GameObject GhostPaddlePrehab;
     [SerializeField] GameObject ShieldPrehab;
+
     public float _PaddleSpeed = 10f;  //パドルスピードの変数
     private float _GhostSpanTime = 5f;
     private float _Time;
+
     [Range(0, 5)] public int _SpeedLevel = 0;
     [Range(0, 5)] public int _PaddleScaleLevel = 0;
     [Range(0, 5)] public int _CriateSpanRevel = 0;
     [Range(0, 1)] public int _GhostLevel = 0;
+
     [HideInInspector] public bool _InGame = false;  //ゲーム中かの判定
     [HideInInspector] public bool _canCriate = false;
     [HideInInspector] public bool _canGhost = false;
     [HideInInspector] public bool _canShield = false;
+
     private float x;  //水平方向の処理の値を入れる変数
     private float y;  //垂直方向の処理の値を入れる変数
     private float clampedX;  //クランプした後のX
