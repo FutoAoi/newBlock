@@ -12,7 +12,8 @@ public class PaddleMove : MonoBehaviour
 
     [Range(0, 5)] public int _SpeedLevel = 0;
     [Range(0, 5)] public int _PaddleScaleLevel = 0;
-    [Range(0, 5)] public int _CriateSpanRevel = 0;
+    [Range(0, 5)] public int _CriateSpanLevel = 0;
+    [Range(0, 1)] public int _ShieldLevel = 0;
     [Range(0, 1)] public int _GhostLevel = 0;
 
     [HideInInspector] public bool _InGame = false;  //ゲーム中かの判定
@@ -41,7 +42,7 @@ public class PaddleMove : MonoBehaviour
     void Update()
     {
         Move();  //Move()メソッド
-        CriateBall(_CriateSpanRevel);
+        CriateBall(_CriateSpanLevel);
         Ghost();
     }
     private void Move()
