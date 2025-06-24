@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float _BollSpeed = 5.0f;  //ボールの速度の変数
-    public float _SpeedChanger = 1.1f;  //速度変更の倍率
-    public float _SpeedChangeSpan = 5f;  //速度変化の間隔
+    [SerializeField] float _BollSpeed = 5.0f;  //ボールの速度の変数
+    [SerializeField] float _SpeedChanger = 1.01f;  //速度変更の倍率
+    [SerializeField] float _SpeedChangeSpan = 5f;  //速度変化の間隔
 
     Rigidbody2D _rb;  //Rigidbodyを取得するための箱
     float _time;  //速度変更してからの経過時間を測る変数
