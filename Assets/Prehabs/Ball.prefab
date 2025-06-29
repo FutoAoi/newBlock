@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3176243333304080558}
   - component: {fileID: 8626170119354446931}
   - component: {fileID: 2804676858707477861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

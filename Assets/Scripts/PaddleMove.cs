@@ -7,14 +7,16 @@ public class PaddleMove : MonoBehaviour
     [SerializeField] GameObject ShieldPrehab;
 
     public float _PaddleSpeed = 10f;  //パドルスピードの変数
+    public int _CoinParcent = 50;
+    public int _HaveCoin = 0;
     private float _GhostSpanTime = 5f;
     private float _Time;
 
-    [Range(0, 5)] public int _SpeedLevel = 0;
-    [Range(0, 5)] public int _PaddleScaleLevel = 0;
-    [Range(0, 5)] public int _CriateSpanLevel = 0;
-    [Range(0, 1)] public int _ShieldLevel = 0;
-    [Range(0, 1)] public int _GhostLevel = 0;
+    [HideInInspector,Range(0, 5)] public int _SpeedLevel = 0;
+    [HideInInspector,Range(0, 5)] public int _PaddleScaleLevel = 0;
+    [HideInInspector,Range(0, 5)] public int _CriateSpanLevel = 0;
+    [HideInInspector,Range(0, 1)] public int _ShieldLevel = 0;
+    [HideInInspector,Range(0, 1)] public int _GhostLevel = 0;
 
     [HideInInspector] public bool _InGame = false;  //ゲーム中かの判定
     [HideInInspector] public bool _canCriate = false;
@@ -28,6 +30,7 @@ public class PaddleMove : MonoBehaviour
     private float moveX;
     private float moveY;
     private int _breakBlockCount;
+    private int _Random;
     private Transform _tf;  //Transformを取得するための変数
     private void Awake()
     {
@@ -68,7 +71,6 @@ public class PaddleMove : MonoBehaviour
         if (!_InGame) return;
 
         Instantiate(ShieldPrehab,new Vector3(0f, -5f, 0f), Quaternion.identity);
-        
     }
 
     private void Ghost()
@@ -82,6 +84,7 @@ public class PaddleMove : MonoBehaviour
             _Time = 0f;
         }
     }
+
     private void CriateBall(int criatespanrevel)
     {
         if (!_canCriate) return;
@@ -91,8 +94,20 @@ public class PaddleMove : MonoBehaviour
             _breakBlockCount = 0;
         }
     }
+
     public void BreakBlockCount()
     {
         _breakBlockCount++;
+        Coin();
+    }
+
+    public void Coin()
+    {
+        _Random = UnityEngine.Random.Range(0, 100);
+
+        if (_Random < _CoinParcent)
+        {
+            _HaveCoin++;
+        }
     }
 }

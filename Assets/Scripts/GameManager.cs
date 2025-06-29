@@ -37,16 +37,17 @@ public class GameManager : MonoBehaviour
     public void BlockDestroyed()  //ブロックの数を減らすメソッド
     {
         _BlockCount--;  //ブロックの数を一つ減らす
+        _PaddleMove.BreakBlockCount();
 
         if (_BlockCount <= 0)  //もしブロックの数が0より少ないなら
         {
             LoadNextScene();
-            _PaddleMove._InGame = false;
         }
     }
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
+        _PaddleMove._InGame = false;
     }
 }
