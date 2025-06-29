@@ -62,13 +62,15 @@ public class PaddleMove : MonoBehaviour
         }
         _tf.position = new Vector3(clampedX, clampedY, 0f);
     }
-    #region çHéñíÜ
-    private void Shield()
+    public void Shield()
     {
         if (!_canShield) return;
-        //Instantiate(ShieldPrehab,)
+        if (!_InGame) return;
+
+        Instantiate(ShieldPrehab,new Vector3(0f, -5f, 0f), Quaternion.identity);
+        
     }
-    #endregion
+
     private void Ghost()
     {
         if (!_canGhost) return;

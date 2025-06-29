@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     {
         _PaddleMove = GameObject.Find("Paddle").GetComponent<PaddleMove>();
         _PaddleMove._InGame = true;
+        _PaddleMove.Shield();
     }
 
     private void Update()
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
         if (_TimeLimit < 0)
         {
             Invoke("LoadNextScene", 5);
+            _TimeLimit = 0;
         }
     }
 
@@ -38,12 +40,13 @@ public class GameManager : MonoBehaviour
 
         if (_BlockCount <= 0)  //‚à‚µƒuƒƒbƒN‚Ì”‚ª0‚æ‚è­‚È‚¢‚È‚ç
         {
-            LoadNextScene(1);
+            LoadNextScene();
+            _PaddleMove._InGame = false;
         }
     }
 
-    void LoadNextScene(int SceneNumber)
+    void LoadNextScene()
     {
-        SceneManager.LoadScene(SceneNumber);
+        SceneManager.LoadScene(2);
     }
 }
