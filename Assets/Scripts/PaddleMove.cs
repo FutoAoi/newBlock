@@ -9,17 +9,17 @@ public class PaddleMove : MonoBehaviour
     public float _PaddleSpeed = 10f;  //パドルスピードの変数
     public int _CoinParcent = 50;
     public int _HaveCoin = 0;
-    private float _GhostSpanTime = 5f;
+    private float _GhostSpanTime = 10f;
     private float _Time;
 
     [HideInInspector,Range(0, 5)] public int _SpeedLevel = 0;
     [HideInInspector,Range(0, 5)] public int _PaddleScaleLevel = 0;
-    [HideInInspector,Range(0, 5)] public int _CriateSpanLevel = 0;
+    [HideInInspector,Range(0, 5)] public int _CreateSpanLevel = 0;
     [HideInInspector,Range(0, 1)] public int _ShieldLevel = 0;
     [HideInInspector,Range(0, 1)] public int _GhostLevel = 0;
 
     [HideInInspector] public bool _InGame = false;  //ゲーム中かの判定
-    [HideInInspector] public bool _canCriate = false;
+    [HideInInspector] public bool _canCreate = false;
     [HideInInspector] public bool _canGhost = false;
     [HideInInspector] public bool _canShield = false;
 
@@ -45,7 +45,7 @@ public class PaddleMove : MonoBehaviour
     void Update()
     {
         Move();  //Move()メソッド
-        CriateBall(_CriateSpanLevel);
+        CreateBall(_CreateSpanLevel);
         Ghost();
     }
     private void Move()
@@ -70,7 +70,7 @@ public class PaddleMove : MonoBehaviour
         if (!_canShield) return;
         if (!_InGame) return;
 
-        Instantiate(ShieldPrehab,new Vector3(0f, -5f, 0f), Quaternion.identity);
+        Instantiate(ShieldPrehab,new Vector3(0f, -5.1f, 0f), Quaternion.identity);
     }
 
     private void Ghost()
@@ -85,12 +85,12 @@ public class PaddleMove : MonoBehaviour
         }
     }
 
-    private void CriateBall(int criatespanrevel)
+    private void CreateBall(int createspanrevel)
     {
-        if (!_canCriate) return;
-        if (_breakBlockCount > 6 - criatespanrevel)
+        if (!_canCreate) return;
+        if (_breakBlockCount > 6 - createspanrevel)
         {
-            Instantiate(BallPrehab, this.transform.position, Quaternion.identity);
+            Instantiate(BallPrehab, this.transform.position + new Vector3(0f , 0.1f, 0f), Quaternion.identity);
             _breakBlockCount = 0;
         }
     }

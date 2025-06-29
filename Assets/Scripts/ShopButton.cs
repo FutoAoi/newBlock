@@ -76,10 +76,10 @@ public class ShopButton : MonoBehaviour
                     _CoinCostText.text = $"{_CoinCost}";
                     break;
                 case 2:
-                    _PaddleMove._canCriate = true;
-                    _PaddleMove._CriateSpanLevel++;
-                    _LevelText.text = _PaddleMove._CriateSpanLevel.ToString();
-                    _ExplamationText.text = $"{6 - _PaddleMove._CriateSpanLevel}個ブロックを壊すごとにボールを生成する";
+                    _PaddleMove._canCreate = true;
+                    _PaddleMove._CreateSpanLevel++;
+                    _LevelText.text = _PaddleMove._CreateSpanLevel.ToString();
+                    _ExplamationText.text = $"{6 - _PaddleMove._CreateSpanLevel}個ブロックを壊すごとにボールを生成する";
                     _CoinCostText.text = $"{_CoinCost}";
                     break;
                 case 3:
@@ -105,7 +105,7 @@ public class ShopButton : MonoBehaviour
             inButton = true;
             if (SkillNumber == 2)
             {
-                _ExplamationText.text = $"{6 - _PaddleMove._CriateSpanLevel}個ブロックを壊すごとにボールを生成する";
+                _ExplamationText.text = $"{6 - _PaddleMove._CreateSpanLevel}個ブロックを壊すごとにボールを生成する";
             }
             else
             {
@@ -139,7 +139,7 @@ public class ShopButton : MonoBehaviour
                 _CoinCost += _Level * _CoinCostChanger;
                 break;
             case 2:
-                _Level = _PaddleMove._CriateSpanLevel;
+                _Level = _PaddleMove._CreateSpanLevel;
                 _LevelText.text = _Level.ToString();
                 _CoinCost += _Level * _CoinCostChanger;
                 break;

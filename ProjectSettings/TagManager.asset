@@ -48,3 +48,6 @@ TagManager:
   - name: Paddle
     uniqueID: 2030852513
     locked: 0
+  - name: coin
+    uniqueID: 3517583283
+    locked: 0
