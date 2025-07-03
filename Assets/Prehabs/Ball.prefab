@@ -161,9 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767fda880bd79304e89289ab087fefa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameManager: {fileID: 0}
   _BollSpeed: 5
   _SpeedChanger: 1.01
   _SpeedChangeSpan: 5
-  _MinBallSpeed: 0.2
+  _MinSpeed: 0.1
   _AddX: {x: 0.1, y: 0, z: 0}
   _AddY: {x: 0, y: 0.1, z: 0}

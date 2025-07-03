@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField] GameManager _GameManager;
     [SerializeField] float _BollSpeed = 5.0f;  //ボールの速度の変数
     [SerializeField] float _SpeedChanger = 1.01f;  //速度変更の倍率
     [SerializeField] float _SpeedChangeSpan = 5f;  //速度変化の間隔
@@ -14,9 +15,11 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
+        _GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _rb = GetComponent<Rigidbody2D>();  //Rigidbodyを取得
         _rb.velocity = new Vector3(1f, 1f).normalized * _BollSpeed;  //ボールを斜め右に射出
         _time = Time.time;
+        _GameManager.AddBall();
     }
     private void Update()
     {
@@ -44,6 +47,7 @@ public class BallController : MonoBehaviour
     {
         if (other.CompareTag("DeadZone"))  //もしタグが"Ball"のオブジェクトに当たったら
         {
+            _GameManager.BallDestroyed();
             Destroy(this.gameObject);  //Ballを消す
         }
     }

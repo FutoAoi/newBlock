@@ -24,13 +24,13 @@ public class PaddleMove : MonoBehaviour
     [HideInInspector] public bool _canGhost = false;
     [HideInInspector] public bool _canShield = false;
 
+    [HideInInspector]public int _breakBlockCount;
     private float x;  //水平方向の処理の値を入れる変数
     private float y;  //垂直方向の処理の値を入れる変数
     private float clampedX;  //クランプした後のX
     private float clampedY;  //クランプした後のY
     private float moveX;
     private float moveY;
-    private int _breakBlockCount;
     private int _Random;
     private Transform _tf;  //Transformを取得するための変数
 
