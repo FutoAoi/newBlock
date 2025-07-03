@@ -1097,6 +1097,10 @@ PrefabInstance:
       propertyPath: _HaveCoin
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 8189558137786556118, guid: 864a7808d96faa6418b5883e3cf72a8f, type: 3}
+      propertyPath: GhostPaddlePrehab
+      value: 
+      objectReference: {fileID: 8267105422020969628, guid: 0b9d26844becced4096c7307108899ef, type: 3}
     - target: {fileID: 8744239269496539700, guid: 864a7808d96faa6418b5883e3cf72a8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

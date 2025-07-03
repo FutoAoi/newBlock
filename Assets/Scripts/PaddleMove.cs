@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 public class PaddleMove : MonoBehaviour
 {
@@ -32,22 +33,26 @@ public class PaddleMove : MonoBehaviour
     private int _breakBlockCount;
     private int _Random;
     private Transform _tf;  //Transformを取得するための変数
+
     private void Awake()
     {
         DontDestroyOnLoad(this);  //このオブジェクトをシーン移行で破棄しない
         _breakBlockCount = 0;
     }
+
     void Start()
     {
         Application.targetFrameRate = 60;  //フレームレートを60に固定
         _tf = GetComponent<Transform>();  //Transformを取得
     }
+
     void Update()
     {
         Move();  //Move()メソッド
         CreateBall(_CreateSpanLevel);
         Ghost();
     }
+
     private void Move()
     {
         x = Input.GetAxisRaw("Horizontal");
@@ -80,7 +85,7 @@ public class PaddleMove : MonoBehaviour
         _Time += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space) && _Time > _GhostSpanTime)
         {
-            Instantiate(GhostPaddlePrehab, this.transform.position, Quaternion.identity);
+            StartCoroutine(GhostDestroy());
             _Time = 0f;
         }
     }
@@ -109,5 +114,12 @@ public class PaddleMove : MonoBehaviour
         {
             _HaveCoin++;
         }
+    }
+
+    private IEnumerator GhostDestroy()
+    {
+        GameObject a = Instantiate(GhostPaddlePrehab, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(3);
+        Destroy(a);
     }
 }
