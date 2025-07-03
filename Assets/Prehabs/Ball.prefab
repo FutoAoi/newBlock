@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2804676858707477861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +164,6 @@ MonoBehaviour:
   _BollSpeed: 5
   _SpeedChanger: 1.01
   _SpeedChangeSpan: 5
+  _MinBallSpeed: 0.2
+  _AddX: {x: 0.1, y: 0, z: 0}
+  _AddY: {x: 0, y: 0.1, z: 0}

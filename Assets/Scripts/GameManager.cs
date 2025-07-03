@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI TextMeshProUGUI;
     private int _BlockCount = 0;  //ブロックを数える変数
+    private int _BallCount = 0;
 
     private void Start()
     {
@@ -34,12 +35,27 @@ public class GameManager : MonoBehaviour
         _BlockCount++;  //ブロックの数を増やす
     }
 
+    public void AddBall()
+    {
+        _BallCount++;
+    }
+
     public void BlockDestroyed()  //ブロックの数を減らすメソッド
     {
         _BlockCount--;  //ブロックの数を一つ減らす
         _PaddleMove.BreakBlockCount();
 
         if (_BlockCount <= 0)  //もしブロックの数が0より少ないなら
+        {
+            LoadNextScene();
+        }
+    }
+
+    public void BallDestroyed()
+    {
+        _BallCount--;
+
+        if(_BallCount <= 0)
         {
             LoadNextScene();
         }
