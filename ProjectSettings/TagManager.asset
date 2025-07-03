@@ -51,3 +51,6 @@ TagManager:
   - name: coin
     uniqueID: 3517583283
     locked: 0
+  - name: ball
+    uniqueID: 2679036441
+    locked: 0

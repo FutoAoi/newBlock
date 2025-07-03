@@ -1093,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paddle
       objectReference: {fileID: 0}
+    - target: {fileID: 7359206601363018660, guid: 864a7808d96faa6418b5883e3cf72a8f, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 33554433
+      objectReference: {fileID: 0}
     - target: {fileID: 8189558137786556118, guid: 864a7808d96faa6418b5883e3cf72a8f, type: 3}
       propertyPath: _HaveCoin
       value: 5000
